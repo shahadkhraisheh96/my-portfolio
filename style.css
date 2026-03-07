@@ -349,12 +349,14 @@ padding-top: 30px;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0 120px;
-  padding: 30px;
+ padding-inline-start: 10%;
+ margin-inline-end: 3%;
+ padding-bottom: 30px;
+
   
 }
 .skill-card-content{
-  margin: 16px;
+  margin: 16px 0 40px 0;
   padding: 20px;
   border: solid 1pt palevioletred;
   border-radius: 50%;
@@ -466,25 +468,38 @@ padding-top: 30px;
   background-color: inherit;
   width: 50%; 
   box-sizing: border-box;
-  opacity: 0;
-  animation: movedown 1s linear forwards;
+
+  animation: movedown  linear both;
+  animation-timeline: view();
+
+
  
+}.container:nth-child(1) { 
+  animation-range: entry 0% entry 60%; 
+}
+.container:nth-child(2) { 
+  animation-range: entry 20% entry 80%; 
+}
+.container:nth-child(3) { 
+  animation-range: entry 40% entry 100%; 
+}
+.container:nth-child(4) { 
+  animation-range: entry 60% cover 60%; 
 }
 @keyframes movedown{
   0%{
-    opacity: 1;
-    transform: translateY(-30px);
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  50%{
+        opacity: 1;
+    transform: translateY(-50px);
   }
    100%{
-    opacity: 1;
+    opacity: 2;
     transform: translateY(0px);
   }
 }
-.container:nth-child(1) { animation-delay: 0s; }
-.container:nth-child(2) { animation-delay: 0.5s; }
-.container:nth-child(3) { animation-delay: 1s; }
-.container:nth-child(4) { animation-delay: 1.5s; }
-
 .left-card {
   left: 0;
 }
